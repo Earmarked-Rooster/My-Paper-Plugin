@@ -4,7 +4,6 @@ factions:
     factionPower: 15
   Bobland:
     members:
-    - a686fbfe-f66a-4f48-9cad-f4ea6f71535d
     factionPower: 65
-    leader: a686fbfe-f66a-4f48-9cad-f4ea6f71535d
+    leader: 
 
