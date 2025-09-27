@@ -1,0 +1,93 @@
+name: ExamplePluginWithMinecraft
+version: '1.0-SNAPSHOT'
+main: io.github.EarmarkedRooster.examplePluginWithMinecraft.ExamplePluginWithMinecraft
+description: My own Plugin!
+authors: [ Frank, Bill, MouseMajor ]
+contributors: [ Jill, Jack, Bell ]
+website: https://papermc.io
+api-version: '1.21.8'
+load: STARTUP
+prefix: SuperExtraCoolMod
+permissions:
+  permission.node:
+    description: "This is an example of a permission node"
+    default: op
+
+  ExamplePluginWithMinecraft.socialcredit:
+    description: "another one!"
+    default: not op
+
+  ExamplePluginWithMinecraft.faction.join:
+    description: "Allows players to join a faction"
+    default: not op
+
+  ExamplePluginWithMinecraft.faction.create:
+    description: "Allows players to create a faction"
+    default: op
+
+  ExamplePluginWithMinecraft.faction.leave:
+    description: "Allows players to leave a faction"
+    default: not op
+
+  ExamplePluginWithMinecraft.faction.top:
+    description: "Allows players to see the top factions"
+    default: not op
+commands:
+  eatGrass:
+    description: "This is a command about eating grass"
+    usage: "/eatGrass <playername>"
+    aliases: [ eG, eatGrass ]
+    permission: permission.node
+    permission-message: "You can't eat grass! (no permission to use this command)"
+  serverflight:
+    description: "This is a command about toggling fly"
+    usage: "/serverflight <allow>"
+    aliases: [ sf, serverflight ]
+    permission: permission.node
+    permission-message: "You can't toggle fly! (no permission to use this command)"
+  flyspeed:
+    description: "edits fly speed"
+    usage: "/flyspeed <speed>"
+    aliases: [ flyspeed ]
+    permission: permission.node
+    permission-message: "You can't change how fast you fly! (no permission to use this command)"
+  icecream:
+    description: "edits fly speed"
+    usage: "/icecream <flavor>"
+    aliases: [ icecream ]
+    permission: permission.node
+    permission-message: "You can't eat this! (no permission to use this command)"
+  helloworld:
+    description: "says hi!"
+    usage: "/helloworld"
+    aliases: [ helloworld ]
+    permission: permission.node
+    permission-message: "You can't say hello! (no permission to use this command)"
+  summonanvil:
+    description: "summons an anvil 30 blocks above the target"
+    usage: "/summonanvil <playername>"
+    aliases: [ summonanvil ]
+    permission: permission.node
+    permission-message: "You can't do that! (no permission to use this command)"
+  levelup:
+    description: "levels you up!"
+    usage: "/<command>"
+  persistent:
+    description: "opens your stash!"
+    usage: "/<command>"
+  testpersistent:
+    description: "opens your stash!"
+    usage: "/<command>"
+  menu:
+    description: "opens a menu!"
+    usage: "/<command>"
+  socialcredit:
+    description: "does nothing!"
+    usage: "/<command>"
+    permission: ExamplePluginWithMinecraft.socialcredit
+    permission-message: "I LOVE CHINA"
+  faction:
+    description: "Faction command"
+    usage: "/faction <create|join|leave|top>"
+    permission: ExamplePluginWithMinecraft.faction
+    permission-message: "You do not have permission to use this command."

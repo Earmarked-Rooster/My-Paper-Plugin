@@ -1,0 +1,68 @@
+[14:51:18] [ServerMain/INFO]: [bootstrap] Running Java 23 (Java HotSpot(TM) 64-Bit Server VM 23.0.1+11-39; Oracle Corporation null) on Windows 10 10.0 (amd64)
+[14:51:18] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.8-60-main@29c8822 (2025-09-06T21:49:13Z) for Minecraft 1.21.8
+[14:51:19] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[14:51:19] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
+[14:51:19] [ServerMain/INFO]: [PluginInitializerManager] Paper plugins (1):
+ - ExamplePluginWithMinecraft (1.0-SNAPSHOT)
+[14:51:19] [ServerMain/ERROR]: [ModernPluginLoadingStrategy] Ambiguous plugin name 'ExamplePluginWithMinecraft' for files 'C:\Users\rio4t\IdeaProjects\ExamplePluginWithMinecraft - PaperPlugin\build\libs\ExamplePluginWithMinecraft-1.0-SNAPSHOT.jar' and 'plugins\ExamplePluginWithMinecraft-1.0-SNAPSHOT.jar' in 'plugins'
+[14:51:23] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[14:51:25] [ServerMain/INFO]: Loaded 1407 recipes
+[14:51:25] [ServerMain/INFO]: Loaded 1520 advancements
+[14:51:25] [ServerMain/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[14:51:25] [ServerMain/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 273.8ms
+[14:51:25] [Server thread/INFO]: Starting minecraft server version 1.21.8
+[14:51:25] [Server thread/INFO]: Loading properties
+[14:51:25] [Server thread/INFO]: This server is running Paper version 1.21.8-60-main@29c8822 (2025-09-06T21:49:13Z) (Implementing API version 1.21.8-R0.1-SNAPSHOT)
+[14:51:25] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[14:51:25] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[14:51:25] [Server thread/INFO]: Using 4 threads for Netty based IO
+[14:51:25] [Server thread/INFO]: [MoonriseCommon] Paper is using 4 worker threads, 1 I/O threads
+[14:51:25] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using population gen parallelism: true
+[14:51:25] [Server thread/INFO]: Default game type: SURVIVAL
+[14:51:25] [Server thread/INFO]: Generating keypair
+[14:51:25] [Server thread/INFO]: Starting Minecraft server on *:25565
+[14:51:25] [Server thread/INFO]: Using default channel type
+[14:51:25] [Server thread/INFO]: Paper: Using Java compression from Velocity.
+[14:51:25] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[14:51:26] [Server thread/INFO]: [ExamplePluginWithMinecraft] Loading server plugin ExamplePluginWithMinecraft v1.0-SNAPSHOT
+[14:51:26] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[14:51:26] [Server thread/INFO]: Preparing level "world"
+[14:51:26] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[14:51:26] [Server thread/INFO]: Preparing spawn area: 0%
+[14:51:27] [Server thread/INFO]: Preparing spawn area: 2%
+[14:51:27] [Server thread/INFO]: Time elapsed: 705 ms
+[14:51:27] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[14:51:27] [Server thread/INFO]: Preparing spawn area: 0%
+[14:51:27] [Server thread/INFO]: Time elapsed: 70 ms
+[14:51:27] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[14:51:27] [Server thread/INFO]: Preparing spawn area: 0%
+[14:51:27] [Server thread/INFO]: Time elapsed: 52 ms
+[14:51:27] [Server thread/INFO]: [ExamplePluginWithMinecraft] Enabling ExamplePluginWithMinecraft v1.0-SNAPSHOT
+[14:51:27] [Server thread/INFO]: [ExamplePluginWithMinecraft] Loaded 1 social credit scores.
+[14:51:27] [Server thread/INFO]: [ExamplePluginWithMinecraft] All commands registered!
+[14:51:27] [Server thread/INFO]: [ExamplePluginWithMinecraft] All events registered!
+[14:51:27] [Server thread/INFO]: [ExamplePluginWithMinecraft] Plugin enabled!
+[14:51:27] [Server thread/INFO]: [spark] Starting background profiler...
+[14:51:27] [Server thread/INFO]: [spark] The async-profiler engine is not supported for your os/arch (windows10/amd64), so the built-in Java engine will be used instead.
+[14:51:27] [Server thread/INFO]: Done preparing level "world" (1.526s)
+[14:51:27] [Server thread/INFO]: Running delayed init tasks
+[14:51:27] [Server thread/INFO]: Done (9.722s)! For help, type "help"
+[14:51:48] [User Authenticator #0/INFO]: UUID of player MouseMajor is a686fbfe-f66a-4f48-9cad-f4ea6f71535d
+[14:51:49] [Server thread/INFO]: MouseMajor joined the game
+[14:51:49] [Server thread/INFO]: MouseMajor[/127.0.0.1:57770] logged in with entity id 36 at ([world]-783.1092568175081, 72.0, 6861.632975069364)
+[14:51:52] [Server thread/INFO]: MouseMajor issued server command: /socialcredit shop
+[14:51:52] [Server thread/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[14:51:54] [Server thread/INFO]: MouseMajor issued server command: /clear
+[14:51:54] [Server thread/INFO]: [MouseMajor: Removed 183 item(s) from player MouseMajor]
+[14:51:55] [Server thread/INFO]: MouseMajor issued server command: /clear
+[14:51:56] [Server thread/INFO]: MouseMajor issued server command: /socialcredit shop
+[14:52:02] [Server thread/INFO]: MouseMajor issued server command: /socialcredit set MouseMajor 100
+[14:52:02] [Server thread/INFO]: [ExamplePluginWithMinecraft] Saved 1 social credit scores.
+[14:52:03] [Server thread/INFO]: MouseMajor issued server command: /socialcredit shop
+[14:52:07] [Server thread/INFO]: MouseMajor issued server command: /socialcredit shop
+[14:52:10] [Server thread/INFO]: MouseMajor issued server command: /socialcredit set MouseMajor 100
+[14:52:10] [Server thread/INFO]: [ExamplePluginWithMinecraft] Saved 1 social credit scores.
+[14:52:12] [Server thread/INFO]: MouseMajor issued server command: /socialcredit shop
+[15:30:07] [Server thread/INFO]: [ExamplePluginWithMinecraft] LongRangeFirework has hit its target!
+[15:34:16] [Server thread/INFO]: MouseMajor lost connection: Disconnected
+[15:34:16] [Server thread/INFO]: MouseMajor left the game

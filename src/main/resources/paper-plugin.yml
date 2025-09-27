@@ -1,0 +1,8 @@
+name: ExamplePluginWithMinecraft
+version: '1.0-SNAPSHOT'
+main: io.github.EarmarkedRooster.examplePluginWithMinecraft.ExamplePluginWithMinecraft
+description: My own Plugin!
+api-version: '1.21.8'
+bootstrapper: io.github.EarmarkedRooster.examplePluginWithMinecraft.ExamplePluginWithMinecraftBootstrap
+loader: io.github.EarmarkedRooster.examplePluginWithMinecraft.ExamplePluginWithMinecraftLoader
+

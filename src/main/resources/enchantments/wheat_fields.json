@@ -1,0 +1,11 @@
+{
+  "name": "Wheat Fields",
+  "description": "Automatically replants wheat when harvested.",
+  "applicable_items": [
+    "DIAMOND_HOE",
+    "IRON_HOE",
+    "GOLDEN_HOE",
+    "STONE_HOE",
+    "WOODEN_HOE"
+  ]
+}
