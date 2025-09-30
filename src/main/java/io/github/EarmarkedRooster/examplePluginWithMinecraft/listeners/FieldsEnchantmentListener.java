@@ -20,7 +20,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-
+// TO BE DELETED - ENCHANTMENTS ARE NOT CUSTOMIZED THIS WAY VERSIONS 1.21 +
 public class FieldsEnchantmentListener implements Listener {
 
     private final ExamplePluginWithMinecraft plugin;
