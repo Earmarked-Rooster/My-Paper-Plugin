@@ -41,7 +41,7 @@ public class StashWithDatabaseTest implements Listener {
                         ctx.getSource().getSender().sendMessage(Component.text("This command can only be run by a player.", NamedTextColor.RED));
                         return 0;
                     }
-
+                    // still loads the stash of the player if said player is not loaded in the server, but the file containing their UUID is 
                     Inventory stash = STASHES.computeIfAbsent(player.getUniqueId(), uuid -> loadStash(player));
                     player.openInventory(stash);
                     return Command.SINGLE_SUCCESS;
@@ -60,6 +60,7 @@ public class StashWithDatabaseTest implements Listener {
     }
 
     public void saveStash(UUID playerUUID, Inventory inventory) {
+        // creates this file only if it doesn't already exist to prevent duplicates
         File playerFile = new File(plugin.getDataFolder(), "stashes/" + playerUUID + ".yml");
         FileConfiguration stashConfig = YamlConfiguration.loadConfiguration(playerFile);
 
@@ -67,6 +68,7 @@ public class StashWithDatabaseTest implements Listener {
         for (int i = 0; i < contents.length; i++) {
             ItemStack item = contents[i];
             if (item != null) {
+                // serializes the data in each players stash as the item name + the location in the inventory it is found in
                 byte[] itemBytes = item.serializeAsBytes();
                 String base64Item = Base64.getEncoder().encodeToString(itemBytes);
                 stashConfig.set("inventory." + i, base64Item);
@@ -82,7 +84,7 @@ public class StashWithDatabaseTest implements Listener {
             e.printStackTrace();
         }
     }
-
+    // creation of the stash found in the game
     public Inventory loadStash(Player player) {
         Inventory stash = Bukkit.createInventory(player, 54, Component.text(player.getName() + "'s stash", NamedTextColor.DARK_RED));
         File playerFile = new File(plugin.getDataFolder(), "stashes/" + player.getUniqueId() + ".yml");
@@ -96,6 +98,7 @@ public class StashWithDatabaseTest implements Listener {
             for (String key : stashConfig.getConfigurationSection("inventory").getKeys(false)) {
                 try {
                     int slot = Integer.parseInt(key);
+                    // reloads all the items in the file to be used in the game when run
                     String base64Item = stashConfig.getString("inventory." + key);
                     byte[] itemBytes = Base64.getDecoder().decode(base64Item);
                     ItemStack item = ItemStack.deserializeBytes(itemBytes);
