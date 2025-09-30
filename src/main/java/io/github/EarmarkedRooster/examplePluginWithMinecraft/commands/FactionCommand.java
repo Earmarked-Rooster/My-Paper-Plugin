@@ -29,7 +29,7 @@ public class FactionCommand {
         this.factionDatabase = factionDatabase;
         this.socialCreditDatabase = socialCreditDatabase;
     }
-
+    // beginning of creation of faction command
     public LiteralArgumentBuilder<CommandSourceStack> createCommand() {
         return Commands.literal("faction")
                 .then(Commands.literal("create")
@@ -42,6 +42,7 @@ public class FactionCommand {
                                         factionDatabase.saveFaction(factionName);
                                         context.getSource().getSender().sendMessage(Component.text("Faction '" + factionName + "' created!"));
                                     }
+                                    // command returns a value of 1
                                     return Command.SINGLE_SUCCESS;
                                 })))
                 .then(Commands.literal("join")
@@ -59,6 +60,7 @@ public class FactionCommand {
                                         player.sendMessage(Component.text("Faction '" + factionName + "' does not exist!"));
                                         return Command.SINGLE_SUCCESS;
                                     }
+                                    // gets the UUID of the player in question
                                     String playerFaction = factionDatabase.getPlayerFaction(player.getUniqueId());
                                     if (playerFaction != null) {
                                         player.sendMessage(Component.text("You are already in a faction."));
@@ -89,6 +91,7 @@ public class FactionCommand {
                             return Command.SINGLE_SUCCESS;
                         }))
                 .then(Commands.literal("top")
+                      // permissions are set from the permissions.yml file
                         .requires(source -> source.getSender().hasPermission("ExamplePluginWithMinecraft.faction.top"))
                         .executes(context -> {
                             if (!(context.getSource().getSender() instanceof Player)) {
@@ -101,7 +104,7 @@ public class FactionCommand {
                                 player.sendMessage(Component.text("There are no factions to display."));
                                 return Command.SINGLE_SUCCESS;
                             }
-
+                            // sorts the highest-ranking factions with the most "faction power", reversed to feature the most powerful factions first
                             factions.sort(Comparator.comparingInt(factionDatabase::getFactionPower).reversed());
 
                             player.sendMessage(Component.text("--- Faction Leaderboard ---").decorate(TextDecoration.BOLD));
@@ -177,7 +180,7 @@ public class FactionCommand {
                                     if (playerFaction == null) {
                                         player.sendMessage(Component.text("You are not in a faction."));
                                         return Command.SINGLE_SUCCESS;
-                                    }
+                                    }// isOp checks to see if they player in question has operator permissions
                                     if (!factionDatabase.isLeader(player.getUniqueId(), playerFaction) && !player.isOp()) {
                                         player.sendMessage(Component.text("Only the leader or an operator can do this."));
                                         return Command.SINGLE_SUCCESS;
