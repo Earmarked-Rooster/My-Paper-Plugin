@@ -20,7 +20,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-// TO BE DELETED - ENCHANTMENTS ARE NOT CUSTOMIZED THIS WAY VERSIONS 1.21 +
+
 public class FieldsEnchantmentListener implements Listener {
 
     private final ExamplePluginWithMinecraft plugin;
@@ -40,12 +40,14 @@ public class FieldsEnchantmentListener implements Listener {
         }
 
         ItemStack item = player.getInventory().getItemInMainHand();
+        // checks to see if item in main hand of player has the enchantment called Fields
         Registry<Enchantment> enchantmentRegistry = RegistryAccess.registryAccess().getRegistry(RegistryKey.ENCHANTMENT);
         NamespacedKey customEnchantmentKey = NamespacedKey.fromString("examplepluginwithminecraft:fields");
         Enchantment fieldsEnchantment = enchantmentRegistry.get(TypedKey.create(RegistryKey.ENCHANTMENT, customEnchantmentKey));
 
         if (fieldsEnchantment != null && item.containsEnchantment(fieldsEnchantment)) {
             if (event.getBlock().getType() == Material.WHEAT) {
+                // checks to see if the age of the wheat is at the maximum possible, then rewards the player 
                 Ageable wheat = (Ageable) event.getBlock().getBlockData();
                 if (wheat.getAge() == wheat.getMaximumAge()) {
                     UUID playerUUID = player.getUniqueId();
@@ -53,6 +55,7 @@ public class FieldsEnchantmentListener implements Listener {
                     wheatHarvested.put(playerUUID, harvested);
 
                     if (harvested >= 100) {
+                        // rewards the player with social credit if amount harvested is at the optimal amount
                         Map<UUID, Integer> socialCreditScores = socialCreditDatabase.getSocialCreditScores();
                         int currentScore = socialCreditScores.getOrDefault(playerUUID, 0);
                         int newScore = currentScore + 1;
