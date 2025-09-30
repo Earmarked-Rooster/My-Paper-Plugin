@@ -23,6 +23,7 @@ public class SocialCreditListener implements Listener {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         if (event.getAction().isRightClick()) {
+            // we check to see if the player has a specific item held in their hand called in the registry "social credit item"
             Player player = event.getPlayer();
             ItemStack item = player.getInventory().getItemInMainHand();
             if (item != null && item.hasItemMeta()) {
@@ -31,18 +32,20 @@ public class SocialCreditListener implements Listener {
                     int currentScore = socialCreditDatabase.getSocialCreditScores().getOrDefault(player.getUniqueId(), 50);
                     socialCreditDatabase.getSocialCreditScores().put(player.getUniqueId(), currentScore + 1);
                     player.sendMessage(createRainbowMessage("Your social credit has increased by 1!"));
+                    // we take the item away from the player once they use it
                     item.setAmount(item.getAmount() - 1);
                 }
             }
         }
     }
-
+    // we create a rainbow message to display to the player
     private Component createRainbowMessage(String text) {
         Component component = Component.empty();
         NamedTextColor[] colors = {NamedTextColor.RED, NamedTextColor.GOLD, NamedTextColor.YELLOW, NamedTextColor.GREEN, NamedTextColor.AQUA, NamedTextColor.BLUE, NamedTextColor.LIGHT_PURPLE};
         int colorIndex = 0;
         for (char c : text.toCharArray()) {
             component = component.append(Component.text(c).color(colors[colorIndex]).decorate(TextDecoration.BOLD));
+            // cycling through all the colors in our color index
             colorIndex = (colorIndex + 1) % colors.length;
         }
         return component;
