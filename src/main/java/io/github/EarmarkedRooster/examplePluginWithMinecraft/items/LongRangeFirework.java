@@ -16,6 +16,7 @@ public class LongRangeFirework {
         ItemStack item = new ItemStack(Material.FIREWORK_ROCKET);
         ItemMeta meta = item.getItemMeta();
         meta.displayName(Component.text("Long Range Firework"));
+        // saves my newly created firework called Long Range Firework to the data container available through the Paper API
         NamespacedKey key = new NamespacedKey("examplepluginwithminecraft", "long_range_firework");
         meta.getPersistentDataContainer().set(key, PersistentDataType.STRING, "true");
 
