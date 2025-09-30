@@ -20,8 +20,9 @@ public class ChatListener implements Listener, ChatRenderer {
     @Override
     public Component render(Player source, Component sourceDisplayName, Component message, Audience viewer) {
         return sourceDisplayName
+            // adds a : to the beginning of every message in the server
                 .append(Component.text(":"))
                 .append(message);
-
+        
     }
 }
