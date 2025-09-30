@@ -36,7 +36,7 @@ public class FireworkListener implements Listener {
         if (item.getType() != org.bukkit.Material.FIREWORK_ROCKET) {
             return;
         }
-
+        // grabs the metadata for our firework to be manipulated later
         FireworkMeta fireworkMeta = (FireworkMeta) item.getItemMeta();
         NamespacedKey key = new NamespacedKey("examplepluginwithminecraft", "long_range_firework");
 
@@ -45,7 +45,7 @@ public class FireworkListener implements Listener {
 
             Block block = event.getBlockPlaced();
             Location launchLocation = block.getLocation().add(0.5, 0.5, 0.5);
-
+            // creates a new firework in the location of the old one with a very high velocity (in blocks per tick)
             Firework firework = player.getWorld().spawn(launchLocation, Firework.class);
             firework.setFireworkMeta(fireworkMeta);
             firework.setVelocity(new Vector(10, 5, 0));
@@ -64,6 +64,7 @@ public class FireworkListener implements Listener {
 
             if (fireworkMeta.getPersistentDataContainer().has(key, PersistentDataType.STRING)) {
                 final Location initialLocation = firework.getLocation();
+                // Bukkit Runnable is like the while loop for Minecraft instances
                 new BukkitRunnable() {
                     @Override
                     public void run() {
@@ -71,13 +72,13 @@ public class FireworkListener implements Listener {
                             this.cancel();
                             return;
                         }
-
+                        //  700 blocks
                         if (firework.getLocation().distance(initialLocation) > 700) {
                             firework.detonate();
                             this.cancel();
                             return;
                         }
-
+                        // loads the chunk that the firework is currently in
                         firework.getLocation().getChunk().load();
                     }
                 }.runTaskTimer(plugin, 0L, 1L);
@@ -85,6 +86,7 @@ public class FireworkListener implements Listener {
         }
     }
 
+    // separate event to handle when the firwork explodes, currently unused due to creating poor results
     @EventHandler
     public void onFireworkExplode(FireworkExplodeEvent event) {
         Firework firework = event.getEntity();
