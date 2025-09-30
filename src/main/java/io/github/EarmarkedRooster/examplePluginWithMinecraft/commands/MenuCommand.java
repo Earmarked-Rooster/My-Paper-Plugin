@@ -6,7 +6,7 @@ import io.github.EarmarkedRooster.examplePluginWithMinecraft.managers.MenuManage
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import io.papermc.paper.command.brigadier.Commands;
 import org.bukkit.entity.Player;
-
+// annotation to prevent any warnings from popping up involving the use of new API that may be changed in the future
 @SuppressWarnings("UnstableApiUsage")
 public class MenuCommand {
 
