@@ -17,12 +17,16 @@ public class ExamplePluginWithMinecraftBootstrap implements PluginBootstrap {
         context.getLifecycleManager().registerEventHandler(RegistryEvents.ENCHANTMENT.compose().newHandler(event -> {
             event.registry().register(
                     // The key of the registry
-                    // Plugins should use their own namespace instead of minecraft or papermc
+                    // Plugins should use their own namespace
                     EnchantmentKeys.create(Key.key("examplepluginwithminecraft:pointy")),
                     b -> b.description(Component.text("Pointy"))
+                // what items can use the enchantment
                             .supportedItems(event.getOrCreateTag(ItemTypeTagKeys.SWORDS))
+                // how much it costs on an anvil
                             .anvilCost(1)
+                // the maximum possible cost to enchant said item
                             .maxLevel(25)
+                // its chance to be found on an enchantment table
                                                         .weight(1)
                             .minimumCost(EnchantmentRegistryEntry.EnchantmentCost.of(1, 1))
                             .maximumCost(EnchantmentRegistryEntry.EnchantmentCost.of(3, 1))
@@ -30,8 +34,7 @@ public class ExamplePluginWithMinecraftBootstrap implements PluginBootstrap {
 
             );
             event.registry().register(
-                    // The key of the registry
-                    // Plugins should use their own namespace instead of minecraft or papermc
+                    // we make a new key for the Fields Enchantment
                     EnchantmentKeys.create(Key.key("examplepluginwithminecraft:fields")),
                     b -> b.description(Component.text("Fields"))
                             .supportedItems(event.getOrCreateTag(ItemTypeTagKeys.HOES))
@@ -43,6 +46,7 @@ public class ExamplePluginWithMinecraftBootstrap implements PluginBootstrap {
                             .activeSlots(EquipmentSlotGroup.MAINHAND)
             );
             event.registry().register(
+                // new key likewise for the vein miner enchantment
                     EnchantmentKeys.create(Key.key("examplepluginwithminecraft:vein_miner")),
                     b -> b.description(Component.text("Vein Miner"))
                             .supportedItems(event.getOrCreateTag(ItemTypeTagKeys.PICKAXES))
