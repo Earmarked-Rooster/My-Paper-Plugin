@@ -9,7 +9,7 @@ import org.bukkit.event.inventory.PrepareAnvilEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class AnvilListener implements Listener {
-
+// TO BE DELETED - ENCHANTMENTS ARE NOT CUSTOMIZED THIS WAY VERSIONS 1.21 +
     private final SocialCreditShopMenu socialCreditShopMenu;
 
     public AnvilListener(SocialCreditShopMenu socialCreditShopMenu) {
