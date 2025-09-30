@@ -45,7 +45,8 @@ public class SocialCreditShopMenu implements Listener {
 
     public Inventory createShopMenu(Player player) {
         Inventory shopMenu = Bukkit.createInventory(null, 54, Component.text("Shop"));
-
+        // using the available registries to make a list of all the available items to buy in the shop,
+        // displayed through the GUI of a double chest
         // Player head
         ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta playerHeadMeta = (SkullMeta) playerHead.getItemMeta();
@@ -98,13 +99,15 @@ public class SocialCreditShopMenu implements Listener {
         emeraldMeta.displayName(Component.text("Emerald").color(NamedTextColor.GREEN));
         emerald.setItemMeta(emeraldMeta);
         shopMenu.setItem(23, emerald);
-
+        // repeatedly grabs the item meta for each displayed item and lists them in the shop
         return shopMenu;
     }
 
     public static Inventory createQuantityMenu(ItemStack item) {
         Inventory quantityMenu = Bukkit.createInventory(null, 54, Component.text("Select Quantity"));
+        // amount of items that can be bought at a single time
         int[] quantities = {1, 4, 16, 32, 64};
+        // the slots these quantities will be displayed in another double chest GUI once an item in the shop is clicked on by a player
         int[] slots = {20, 21, 22, 23, 24};
 
         for (int i = 0; i < quantities.length; i++) {
@@ -135,12 +138,13 @@ public class SocialCreditShopMenu implements Listener {
 
             Player player = (Player) event.getWhoClicked();
             ItemStack currentItem = event.getCurrentItem();
-
+            // handler to deduct social credit points from players when they buy items
             if (currentItem != null) {
                 if (currentItem.getType() == Material.STRING || currentItem.getType() == Material.EMERALD) {
                     player.openInventory(createQuantityMenu(currentItem));
                 } else if (currentItem.hasItemMeta() && currentItem.getItemMeta().displayName().equals(Component.text("Fields Enchantment").color(NamedTextColor.GOLD))) {
                     int socialCredit = socialCreditDatabase.getSocialCreditScores().getOrDefault(player.getUniqueId(), 0);
+                    // specifically handlers for the custom enchantments
                     if (socialCredit >= FIELDS_ENCHANTMENT_COST) {
                         socialCreditDatabase.getSocialCreditScores().put(player.getUniqueId(), socialCredit - FIELDS_ENCHANTMENT_COST);
 
