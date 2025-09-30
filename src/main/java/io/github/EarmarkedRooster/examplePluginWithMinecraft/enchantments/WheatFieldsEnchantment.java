@@ -9,7 +9,7 @@ import org.bukkit.persistence.PersistentDataType;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// TO BE DELETED - ENCHANTMENTS ARE NOT CUSTOMIZED THIS WAY VERSIONS 1.21 +
 public class WheatFieldsEnchantment {
 
     private static final NamespacedKey ENCHANTMENT_KEY = new NamespacedKey("examplepluginwithminecraft", "wheat_fields");
