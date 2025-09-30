@@ -29,6 +29,7 @@ public class PointyEnchantmentListener implements Listener {
         if (event.getDamager() instanceof Player) {
             Player player = (Player) event.getDamager();
             ItemStack item = player.getInventory().getItemInMainHand();
+            // we check to see if the item that is currently being used by the player has the pointy enchantment
             Registry<Enchantment> enchantmentRegistry = RegistryAccess.registryAccess().getRegistry(RegistryKey.ENCHANTMENT);
             NamespacedKey customEnchantmentKey = NamespacedKey.fromString("examplepluginwithminecraft:pointy");
             Enchantment pointyEnchantment = enchantmentRegistry.get(TypedKey.create(RegistryKey.ENCHANTMENT, customEnchantmentKey));
@@ -37,7 +38,7 @@ public class PointyEnchantmentListener implements Listener {
                 Entity entity = event.getEntity();
                 if (entity instanceof LivingEntity) {
                     LivingEntity livingEntity = (LivingEntity) entity;
-                    
+                    // we check to see if the entity is wearing armor 
                     if (livingEntity.getEquipment() != null && (livingEntity.getEquipment().getHelmet() != null || livingEntity.getEquipment().getChestplate() != null || livingEntity.getEquipment().getLeggings() != null || livingEntity.getEquipment().getBoots() != null)) {
                         int enchantmentLevel = item.getEnchantmentLevel(pointyEnchantment);
                         double damageIncrease = 1.0 + (0.25 * enchantmentLevel);
